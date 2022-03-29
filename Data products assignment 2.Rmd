@@ -1,0 +1,40 @@
+---
+title: "My presentation"
+author: "Maurice"
+date: "3/29/2022"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Introduction
+
+- This presentation seeks to show the relationship between miles per gallon (mpg) and weight (wt) using the mtcars data set in R.
+
+- The project would feature an interactive plot created using plotly and host the resulting web page on RPubs.
+
+```{r prerequisites, echo=FALSE, warning=FALSE}
+library(datasets)
+library(ggplot2)
+library(plotly)
+library(data.table)
+```
+
+## cars data set 
+```{r, echo=FALSE, comment=""}
+
+head(mtcars)
+summary(cars)
+```
+
+## Plot showing relationship between miles per gallon (mpg) and weight (wt) 
+
+```{r, echo = FALSE, fig.align='center'}
+plot_ly(mtcars, x = ~mpg, y = ~wt, mode = "markers")%>%
+        add_trace(x = ~mpg, y = ~wt, type="scatter", mode = "markers", 
+            name = "slight", legendgroup = "slight", 
+            marker = list(color = "#52A9BD")) 
+```
+
